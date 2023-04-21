@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ProdutosFormComponent } from './produtos-form/produtos-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -22,7 +23,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppMaterialModule,
     SharedModule,
     ReactiveFormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ]
 })
 export class ProdutosModule { }

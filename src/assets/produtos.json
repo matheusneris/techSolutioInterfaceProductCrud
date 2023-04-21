@@ -1,4 +1,4 @@
 [
-  {"id": "1", "name": "Arroz", "fabricante": "tio joao", "preco":"19.90"}
-  {"id": "2", "name": "Feijão", "fabricante": "Urbano", "preco":"6.99"}
+  { "name": "Arroz", "fabricante": "tio joao", "preco":"19.90"},
+  { "name": "Feijão", "fabricante": "Urbano", "preco":"6.99"}
 ]

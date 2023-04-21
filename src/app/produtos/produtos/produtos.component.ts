@@ -15,9 +15,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProdutosComponent {
 
   produtos$: Observable<Produto[]>;
+  /*produtos: Produto[] = [
+    {id: 1, name: 'Feijao', fabricante: 'Tio joao', preco: 10.99},{id: 2, name: 'Arroz', fabricante: 'Urbano', preco: 22.80}
+  ]*/
   displayedColumns = ['name', 'fabricante', 'preco', 'actions'];
-
-  //produtosService: ProdutosService;
 
   constructor(
     private produtosService: ProdutosService,

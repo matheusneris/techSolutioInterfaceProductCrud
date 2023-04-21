@@ -9,3 +9,16 @@ table {
   align-items: center;
   justify-content: center;
 }
+
+.secondBar{
+  display: flex;
+}
+
+.sair{
+  display: flex;
+}
+
+
+button:nth-child(2) {
+  margin-right: auto;
+}
