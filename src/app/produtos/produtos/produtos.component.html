@@ -1,8 +1,8 @@
 <mat-card>
 
 <mat-toolbar color="primary">Produtos cadastrados</mat-toolbar>
-
-  <div *ngIf="produtos$ | async as produtos; else loading">
+<!--| async as produtos; else loading-->
+  <div *ngIf="produtos ">
     <table mat-table [dataSource]="produtos" class="mat-elevation-z8">
 
       <!-- Nome Column -->

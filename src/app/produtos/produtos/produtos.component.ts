@@ -14,7 +14,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProdutosComponent {
 
-  produtos$: Observable<Produto[]>;
+  produtos: Produto[] = [];
+
+  //produtos$: Observable<Produto[]>;
   /*produtos: Produto[] = [
     {id: 1, name: 'Feijao', fabricante: 'Tio joao', preco: 10.99},{id: 2, name: 'Arroz', fabricante: 'Urbano', preco: 22.80}
   ]*/
@@ -26,14 +28,19 @@ export class ProdutosComponent {
     private router: Router,
     private route: ActivatedRoute
     ) {
+      this.getProdutos();
 
-    this.produtos$ = this.produtosService.list()
-    .pipe(
+   /*this.produtosService.list().subscribe((produtos) => this.produtos = produtos);
+   .pipe(
       catchError(error => {
         this.onError('Erro ao carregar produtos.');
         return of([])
       })
-    );
+    );*/
+   }
+
+   getProdutos(): void{
+    this.produtosService.list();
    }
 
    onError(errorMsg: string){
