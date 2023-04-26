@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Produto } from '../model/produto';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { first, tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ import { first, tap } from 'rxjs';
 
 export class ProdutosService {
 
-  private readonly API = '/api/produtos'
+  private readonly API = '/api/produtos';
 
   constructor(private httpClient: HttpClient) { }
 
-  list() {
+  list(){
 
     let bearerToken = localStorage.getItem('token');
     if (bearerToken == null){
@@ -25,7 +25,8 @@ export class ProdutosService {
      return this.httpClient.get<Produto[]>(this.API, {'headers': headers})
      .pipe(
       first(),
-      tap(produtos => console.log)
+      delay(1000),
+      tap(produtos => console.log(produtos))
      );
   }
 

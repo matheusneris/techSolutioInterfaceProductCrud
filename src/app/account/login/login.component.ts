@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit{
       const result = await this.accoutService.login(this.usuario);
       console.log(`Login efetuado`);
 
-      //navega para a rota vazia novamente
       this.router.navigate(['']);
 
     } catch (error) {
