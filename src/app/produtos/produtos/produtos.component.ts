@@ -25,16 +25,16 @@ export class ProdutosComponent {
     private route: ActivatedRoute,
     ) {
 
-    this.produtos$ = this.produtosService.list()
-    .pipe(
+  this.produtos$ = this.produtosService.list()
+   .pipe(
       catchError(error => {
         console.log(error)
         this.onError('Erro ao carregar produtos.');
         return of([])
       })
     );
-    console.log(this.produtos$);
-  }
+    this.produtos$.forEach(produto => console.log(produto));
+   }
 
    onError(errorMsg: string){
     this.dialog.open(ErrorDialogComponent, {
@@ -50,5 +50,3 @@ export class ProdutosComponent {
     this.router.navigate(['new'], {relativeTo: this.route});
    }
 }
-
-

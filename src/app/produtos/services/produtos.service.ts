@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Produto } from '../model/produto';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { delay, first, tap } from 'rxjs';
+import { Observable, first, tap, delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,12 @@ export class ProdutosService {
 
   private readonly API = '/api/produtos';
 
+
+  //'/assets/produtos.json'
+
   constructor(private httpClient: HttpClient) { }
 
-  list(){
+  list(): Observable<Produto[]> {
 
     let bearerToken = localStorage.getItem('token');
     if (bearerToken == null){
@@ -22,7 +25,8 @@ export class ProdutosService {
 
     const headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${bearerToken}`);
 
-     return this.httpClient.get<Produto[]>(this.API, {'headers': headers})
+     return this.httpClient.get<Produto[]>(this.API,
+      {'headers': headers})
      .pipe(
       first(),
       delay(1000),
