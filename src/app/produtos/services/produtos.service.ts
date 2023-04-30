@@ -9,9 +9,10 @@ import { Observable, first, tap, delay } from 'rxjs';
 
 export class ProdutosService {
 
-  private readonly API = '/assets/produtos.json';
+  private readonly API = '/api/produtos';
 
-  //'/api/produtos'
+
+  //'/assets/produtos.json'
 
   constructor(private httpClient: HttpClient) { }
 
